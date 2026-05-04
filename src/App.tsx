@@ -429,7 +429,7 @@ const Footer = () => (
           viewport={{ once: true }}
           className="text-6xl md:text-[90px] font-serif italic leading-[0.85] text-text-main mb-12 tracking-tighter"
         >
-          Available for commissions <br /> starting <span className="text-primary underline underline-offset-[12px] decoration-1">Q3 2026.</span>
+          Open for freelance work — Quick turnaround & reliable delivery
         </motion.h2>
         <div className="flex flex-col md:flex-row gap-12 md:items-center">
             <motion.a 
@@ -567,7 +567,6 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('loading');
-    setMessage('');
     
     const formData = new FormData(e.currentTarget);
     const data = {
@@ -583,26 +582,16 @@ const ContactForm = () => {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
-
       if (response.ok) {
         setStatus('success');
-        setMessage(result.message || 'Message sent successfully!');
+        setMessage('Message sent successfully!');
         (e.target as HTMLFormElement).reset();
       } else {
-        throw new Error(result.error || 'Failed to send message');
+        throw new Error('Failed to send message');
       }
     } catch (err) {
-      console.error('Contact error:', err);
       setStatus('error');
-      setMessage(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
-    }
-  };
-
-  const handleInputFocus = () => {
-    if (status === 'error' || status === 'success') {
-      setStatus('idle');
-      setMessage('');
+      setMessage('Something went wrong. Please try again.');
     }
   };
 
@@ -616,7 +605,7 @@ const ContactForm = () => {
       </div>
       
       <div className="md:w-2/3">
-        <form onSubmit={handleSubmit} onFocus={handleInputFocus} className="space-y-8">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-2">
               <label htmlFor="name" className="text-[10px] uppercase tracking-widest opacity-40 font-bold">Your Name</label>
@@ -626,7 +615,7 @@ const ContactForm = () => {
                 name="name" 
                 id="name"
                 className="w-full bg-transparent border-b border-border-subtle py-4 focus:border-primary outline-none transition-colors font-light text-xl text-text-main"
-                placeholder="John Doe"
+                placeholder="Name"
               />
             </div>
             <div className="space-y-2">
@@ -637,7 +626,7 @@ const ContactForm = () => {
                 name="email" 
                 id="email"
                 className="w-full bg-transparent border-b border-border-subtle py-4 focus:border-primary outline-none transition-colors font-light text-xl text-text-main"
-                placeholder="john@example.com"
+                placeholder="email"
               />
             </div>
           </div>
