@@ -10,7 +10,7 @@ export const PERSONAL_INFO = {
   role: "WordPress | Frontend | PHP Developer",
   specialization: "MailChimp Template Specialist",
   location: "Ahmedabad, Gujarat, India",
-  email: "SumitOnNet85@gmail.com",
+  email: "sumitonnet85@gmail.com",
   linkedin: "linkedin.com/in/sumitgohil",
   github: "github.com/SumitGohilCodes",
   twitter: "twitter.com/Sumit_Gohil",
