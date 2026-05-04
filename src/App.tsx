@@ -459,9 +459,7 @@ const Footer = () => (
               {[
                 { href: PERSONAL_INFO.linkedin, label: 'LinkedIn', icon: <Linkedin className="w-4 h-4" /> },
                 { href: PERSONAL_INFO.github, label: 'GitHub', icon: <Github className="w-4 h-4" /> },
-                { href: PERSONAL_INFO.twitter, label: 'Twitter', icon: <Twitter className="w-4 h-4" /> },
-                { href: PERSONAL_INFO.dribbble, label: 'Dribbble', icon: <Globe className="w-4 h-4" /> },
-                { href: PERSONAL_INFO.behance, label: 'Behance', icon: <Globe className="w-4 h-4" /> }
+                { href: PERSONAL_INFO.twitter, label: 'Twitter', icon: <Twitter className="w-4 h-4" /> }
               ].map((link, i) => (
                 <motion.a 
                   key={i}
