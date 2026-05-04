@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-primary: #0A84FF;
+  --color-surface: var(--color-surface);
+  --color-surface-dim: var(--color-surface-dim);
+  --color-text-main: var(--color-text-main);
+  --color-text-dim: var(--color-text-dim);
+  --color-border-subtle: var(--color-border-subtle);
+}
+
+:root {
+  --color-surface: #0A0A0A;
+  --color-surface-dim: #151515;
+  --color-text-main: #F3F4F6;
+  --color-text-dim: rgba(255, 255, 255, 0.4);
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --bg-grid-color: rgba(255, 255, 255, 0.05);
+}
+
+.light {
+  --color-surface: #FFFFFF;
+  --color-surface-dim: #F9FAFB;
+  --color-text-main: #111827;
+  --color-text-dim: rgba(0, 0, 0, 0.5);
+  --color-border-subtle: rgba(0, 0, 0, 0.08);
+  --bg-grid-color: rgba(0, 0, 0, 0.03);
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-text-main font-sans selection:bg-primary/30 transition-colors duration-300;
+    background-image: radial-gradient(circle at 2px 2px, var(--bg-grid-color) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+}
+
+.glass-card {
+  @apply bg-text-main/5 backdrop-blur-md border border-border-subtle rounded-2xl;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-text-main to-text-dim;
+}
+
