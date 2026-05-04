@@ -567,6 +567,7 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('loading');
+    setMessage('');
     
     const formData = new FormData(e.currentTarget);
     const data = {
@@ -582,16 +583,26 @@ const ContactForm = () => {
         body: JSON.stringify(data),
       });
 
+      const result = await response.json();
+
       if (response.ok) {
         setStatus('success');
-        setMessage('Message sent successfully!');
+        setMessage(result.message || 'Message sent successfully!');
         (e.target as HTMLFormElement).reset();
       } else {
-        throw new Error('Failed to send message');
+        throw new Error(result.error || 'Failed to send message');
       }
     } catch (err) {
+      console.error('Contact error:', err);
       setStatus('error');
-      setMessage('Something went wrong. Please try again.');
+      setMessage(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
+    }
+  };
+
+  const handleInputFocus = () => {
+    if (status === 'error' || status === 'success') {
+      setStatus('idle');
+      setMessage('');
     }
   };
 
@@ -605,7 +616,7 @@ const ContactForm = () => {
       </div>
       
       <div className="md:w-2/3">
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={handleSubmit} onFocus={handleInputFocus} className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-2">
               <label htmlFor="name" className="text-[10px] uppercase tracking-widest opacity-40 font-bold">Your Name</label>

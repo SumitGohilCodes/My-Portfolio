@@ -12,10 +12,8 @@ export const PERSONAL_INFO = {
   location: "Ahmedabad, Gujarat, India",
   email: "SumitOnNet85@gmail.com",
   linkedin: "linkedin.com/in/sumitgohil",
-  github: "github.com/sumitgohil",
+  github: "github.com/SumitGohilCodes",
   twitter: "twitter.com/sumitgohil",
-  dribbble: "dribbble.com/sumitgohil",
-  behance: "behance.net/sumitgohil",
   summary: "Versatile and reliable freelance developer with over 12 years of experience in PHP development and 7+ years specializing in MailChimp custom email templates and landing pages. Consistently praised for meticulous accuracy and delivering polished, fully functional work on time.",
   values: [
     { title: "Meticulous Accuracy", description: "Pixel-perfect translations from design to code with zero compromise on quality." },
