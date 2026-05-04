@@ -429,7 +429,7 @@ const Footer = () => (
           viewport={{ once: true }}
           className="text-6xl md:text-[90px] font-serif italic leading-[0.85] text-text-main mb-12 tracking-tighter"
         >
-          Open for freelance work — Quick turnaround & reliable delivery
+          Available for new projects
         </motion.h2>
         <div className="flex flex-col md:flex-row gap-12 md:items-center">
             <motion.a 
